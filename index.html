@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Biogas Monitoring</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+  <div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <!-- Alerts + user area (unchanged) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">...</li>
+            <li class="nav-item dropdown no-arrow mx-1">...</li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">...</li>
+          </ul>
+        </nav>
+
+        <div class="container-fluid">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+          </div>
+
+          <!-- TOP 3 CARDS -->
+          <div class="row">
+            <!-- pH -->
+            <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">pH</div>
+                  <div id="stat-ph" class="h5 mb-0 font-weight-bold text-gray-800" data-unit="">7.6</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Temperatur -->
+            <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Temperatur</div>
+                  <div id="stat-temp" class="h5 mb-0 font-weight-bold text-gray-800" data-unit="°C">35°C</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Laju Produksi Biogas -->
+            <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Laju Produksi Biogas</div>
+                  <div id="stat-laju" class="h5 mb-0 font-weight-bold text-gray-800" data-unit=" L/m">5 L/m</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /TOP 3 CARDS -->
+
+          <!-- pH Chart -->
+          <div class="row">
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold" style="color: rgba(78, 115, 223, 1);">pH</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area" style="height:260px">
+                    <canvas id="pHChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Konektivitas MiFi (unchanged) -->
+            <!-- <div class="col-xl-4 col-lg-5">...</div> -->
+          </div>
+
+          <!-- Temperatur Chart -->
+          <div class="row">
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3"><h6 class="m-0 font-weight-bold" style="color: #1cc88a;">Temperatur</h6></div>
+                <div class="card-body"><div class="chart-area" style="height:260px"><canvas id="TempChart"></canvas></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Laju Produksi Chart -->
+          <div class="row">
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3"><h6 class="m-0 font-weight-bold" style="color: #36b9cc;">Laju Produksi Biogas</h6></div>
+                <div class="card-body"><div class="chart-area" style="height:260px"><canvas id="LPBChart"></canvas></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produksi Harian Chart -->
+          <div class="row">
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3"><h6 class="m-0 font-weight-bold" style="color: #f6c23e;">Produksi Biogas Harian</h6></div>
+                <div class="card-body"><div class="chart-area" style="height:260px"><canvas id="PBHChart"></canvas></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- /.container-fluid -->
+      </div> <!-- /#content -->
+
+      <footer class="sticky-footer bg-white">...</footer>
+    </div>
+  </div>
+
+  <!-- modals, footer etc (unchanged) -->
+
+  <!-- Core JS libs -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Firebase compat libraries -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <!-- Your app scripts -->
+  <script src="js/firebase.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
