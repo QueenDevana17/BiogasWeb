@@ -3,15 +3,14 @@
 
 (function (window) {
   const firebaseConfig = {
-    apiKey: "AIzaSyDQJf2WswK6h2C-gZoQQhKRerFGmnYNWwU",
-    authDomain: "esp32-firebase-demo-3472c.firebaseapp.com",
-    databaseURL: "https://esp32-firebase-demo-3472c-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "esp32-firebase-demo-3472c",
-    storageBucket: "esp32-firebase-demo-3472c.firebasestorage.app",
-    messagingSenderId: "295010265468",
-    appId: "1:295010265468:web:217288ec31530584075cf9"
-    // storageBucket, messagingSenderId, appId, measurementId optionally...
-  };
+  apiKey: "AIzaSyDChqqRWlpYCuUpdVcKHJIgNpo3AQOfAOg",
+  authDomain: "biogasdatabase-b0d18.firebaseapp.com",
+  projectId: "biogasdatabase-b0d18",
+  storageBucket: "biogasdatabase-b0d18.firebasestorage.app",
+  messagingSenderId: "630633797282",
+  appId: "1:630633797282:web:aa47d84b67b6aa111d69fb",
+  measurementId: "G-5ZMCS103K5"
+};
 
   if (!window.firebase) {
     console.error('Firebase SDK not found. Load firebase-app-compat.js and firebase-firestore-compat.js first.');
@@ -103,3 +102,4 @@
   });
 
 })(window);
+
